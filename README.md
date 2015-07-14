@@ -12,6 +12,7 @@
 * gulp-plumber
 * gulp-sass
 * gulp-uglify
+* gulp-notify
 
 
 ## Ready:
