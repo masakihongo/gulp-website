@@ -1,0 +1,108 @@
+@charset "utf-8";
+/*!
+Theme Name:
+Theme URI:
+Author:
+Author URI:
+Description:
+Version: 1.0
+*/
+
+@import "setting",
+"extension",
+"normalize",
+"default";
+/*====================
+ *    Common Style
+ *====================*/
+body {
+    margin: 0;
+    padding: 0;
+    font-family: $fontFamily;
+    color: $textColor;
+    line-height: 1.6;
+}
+a:link,
+a:visited {
+    color: $linkColor;
+    text-decoration: none;
+}
+a:hover,
+a:active {
+    color: $linkColor_hover;
+    text-decoration: underline;
+}
+a:hover img {
+    opacity: 0.6;
+}
+.noHover a:hover img {
+    opacity: 1;
+}
+/*====================
+ *    Layout
+ *====================*/
+.gheader {
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+.content {
+    padding: 10px 20px;
+    margin: 0 auto;
+}
+.gfooter {
+    padding: 10px;
+    background-color: #333;
+}
+/*====================
+ *    Component
+ *====================*/
+/*--------------------
+ *    header
+ *--------------------*/
+
+.logo {
+    margin: 0;
+}
+/*--------------------
+ *    footer
+ *--------------------*/
+.copyright {
+    margin-bottom: 0;
+    text-align: center;
+    color: #ccc;
+    @include fz(12);
+}
+/*--------------------
+ *    contents
+ *--------------------*/
+
+/*====================
+ *    Modules
+ *====================*/
+/*--------------------
+ *    mod_XX
+ *--------------------*/
+/*--------------------
+ *    btn
+ *--------------------*/
+.btn {
+    @include inline-block;
+    border-radius: 4px;
+    background-color: $linkColor;
+    @include fz(16);
+    line-height: 60px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+
+    &:link,
+    &:visited {
+        color: #fff;
+    }
+    &:hover,
+    &:active {
+        opacity: 0.6;
+        color: #fff;
+        text-decoration: none;
+    }
+}
