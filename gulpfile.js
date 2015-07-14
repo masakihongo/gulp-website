@@ -34,8 +34,10 @@ gulp.task('watch', function () {
 
 // sass
 gulp.task('sass', function () {
-    gulp.src(path.join(dir.dev, dir.projectRoot, dir.assets, '_sass/*.scss'))
-        .pipe($.plumber())
+    return gulp.src(path.join(dir.dev, dir.projectRoot, dir.assets, '_sass/*.scss'))
+        .pipe($.plumber({
+            errorHandler: $.notify.onError('Error: <%= error.message %>')
+        }))
         .pipe($.sass())
         .pipe($.autoprefixer({browsers: ['last 3 version', 'ie 7']}))
         .pipe(gulp.dest(path.join(dir.dev, dir.projectRoot, dir.assets, 'css')))
@@ -46,6 +48,17 @@ gulp.task('sass', function () {
 gulp.task('jshint', function () {
     return gulp.src(path.join(dir.dev, dir.projectRoot, dir.assets, 'js/*.js'))
         .pipe($.jshint())
+        .pipe($.notify(function (file) {
+            if (file.jshint.success) {
+                return false;
+            }
+            var errors = file.jshint.results.map(function (data) {
+                if (data.error) {
+                    return "(" + data.error.line + ':' + data.error.character + ') ' + data.error.reason;
+                }
+            }).join("\n");
+            return file.relative + " (" + file.jshint.results.length + " errors)\n" + errors;
+        }))
         .pipe($.jshint.reporter('jshint-stylish'))
         .pipe(browserSync.reload({stream:true}));
 });
@@ -53,8 +66,11 @@ gulp.task('jshint', function () {
 // htmlhint
 gulp.task('html', function () {
     return gulp.src(path.join(dir.dev, '**/*.html'))
+        .pipe($.plumber({
+            errorHandler: $.notify.onError('Error: <%= error.message %>')
+        }))
         .pipe($.htmlhint())
-        .pipe($.htmlhint.reporter())
+        .pipe($.htmlhint.failReporter())
         .pipe(browserSync.reload({stream:true}));
 });
 
