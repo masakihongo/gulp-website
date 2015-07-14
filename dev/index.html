@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]>      <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -17,7 +20,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="">
 
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
@@ -33,14 +36,20 @@
 
     </footer>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="/share/lib/js/jquery-1.11.1.min.js"><\/script>')</script>
-<script src="/share/lib/js/plugins.js"></script>
-<script src="/share/js/script.js"></script>
+
+<!--[if gte IE 9]><!-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/lib/jquery-2.1.4.min.js"><\/script>')</script>
+<!--<![endif]-->
 <!--[if lt IE 9]>
-<script type="text/javascript" src="/share/lib/js/css3-mediaqueries.js" charset="utf-8"></script>
-<script type="text/javascript" src="/share/lib/js/html5shiv.min.js" charset="utf-8"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/lib/jquery-1.11.3.min.js"><\/script>')</script>
+<script type="text/javascript" src="/assets/js/lib/js/css3-mediaqueries.js" charset="utf-8"></script>
+<script type="text/javascript" src="/assets/js/lib/js/html5shiv.min.js" charset="utf-8"></script>
 <![endif]-->
+<script src="/assets/js/lib/plugins.js"></script>
+<script src="/assets/js/script.js"></script>
+
 <script>
     var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
     (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
