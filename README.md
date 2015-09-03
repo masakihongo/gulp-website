@@ -26,7 +26,7 @@
 
 ## Development:
 
-For deployment
+For development
 
 	$ npm start
 
