@@ -13,6 +13,7 @@
 * gulp-sass
 * gulp-uglify
 * gulp-notify
+* gulp-minify-css
 
 
 ## Ready:
@@ -27,11 +28,11 @@
 
 For deployment
 
-	$ gulp
+	$ npm start
 
 ## Publish:
 
 For build the site
 
-	$ gulp build
+	$ npm run build
 
