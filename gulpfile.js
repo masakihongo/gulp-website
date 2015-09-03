@@ -96,6 +96,13 @@ gulp.task('uglify', function () {
         .pipe(gulp.dest(path.join(dir.dist, dir.projectRoot, dir.assets, 'js')));
 });
 
+// css-minify
+gulp.task('cssmin', function () {
+    return gulp.src(path.join(dir.dev, dir.projectRoot, dir.assets, 'css/*.css'))
+        .pipe($.minifyCss({compatibility: 'ie7'}))
+        .pipe(gulp.dest(path.join(dir.dist, dir.projectRoot, dir.assets, 'css')));
+});
+
 // clean
 gulp.task('clean:all', function () {
     return del([dir.dist]);
@@ -121,7 +128,8 @@ gulp.task('build', function () {
         ['sass', 'images', 'concat'],
         'copy',
         'clean:dist',
-        'uglify'
+        'uglify',
+        'cssmin'
     );
 });
 
