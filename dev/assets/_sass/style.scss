@@ -7,102 +7,71 @@ Author URI:
 Description:
 Version: 1.0
 */
-
-@import "setting",
-"extension",
-"normalize",
-"default";
 /*====================
- *    Common Style
+ *    [Settings] (_setting.scss)
+ *        - config, variables
+ *    [Tools] (_tools.scss)
+ *        - mixins
+ *    [Normalize] (_normalize.css)
+ *        - resets style
+ *    [Utility] (_utility.css)
+ *        - helper classes
+ *    [Base]
+ *        - HTML elements
+ *    [Components] (_componets.css)
+ *        - UI (btn, title)
+ *    [Blocks]
+ *        - Block parts
  *====================*/
+@import "settings",
+"tools",
+"normalize",
+"utility";
+
+/*====================
+ *    Base
+ *====================*/
+html {
+    font-size: 16px;
+}
 body {
     margin: 0;
     padding: 0;
     font-family: $fontFamily;
+    @include fz(14);
     color: $textColor;
     line-height: 1.6;
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased;
 }
-a:link,
-a:visited {
-    color: $linkColor;
-    text-decoration: none;
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
 }
-a:hover,
-a:active {
-    color: $linkColor_hover;
-    text-decoration: underline;
+figure {
+    margin: 0;
 }
-a:hover img {
-    opacity: 0.6;
+textarea {
+    resize: vertical;
 }
-.noHover a:hover img {
-    opacity: 1;
+a {
+    @include basicLink($linkColor);
 }
+
 /*====================
- *    Layout
+ *    Components
  *====================*/
-.gheader {
-    padding: 10px;
-    background-color: #f0f0f0;
-}
-.content {
-    padding: 10px 20px;
-    margin: 0 auto;
-}
-.gfooter {
-    padding: 10px;
-    background-color: #333;
-}
+@import "components";
 /*====================
- *    Component
+ *    Blocks
+ *    - header
+ *    - footer
  *====================*/
 /*--------------------
  *    header
  *--------------------*/
-
-.logo {
-    margin: 0;
-}
 /*--------------------
  *    footer
  *--------------------*/
-.copyright {
-    margin-bottom: 0;
-    text-align: center;
-    color: #ccc;
-    @include fz(12);
-}
-/*--------------------
- *    contents
- *--------------------*/
-
-/*====================
- *    Modules
- *====================*/
-/*--------------------
- *    mod_XX
- *--------------------*/
-/*--------------------
- *    btn
- *--------------------*/
-.btn {
-    @include inline-block;
-    border-radius: 4px;
-    background-color: $linkColor;
-    @include fz(16);
-    line-height: 60px;
-    text-align: center;
-    color: #fff;
-    cursor: pointer;
-
-    &:link,
-    &:visited {
-        color: #fff;
-    }
-    &:hover,
-    &:active {
-        opacity: 0.6;
-        color: #fff;
-        text-decoration: none;
-    }
-}

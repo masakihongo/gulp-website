@@ -19,7 +19,8 @@ gulp.task('server', function () {
     browserSync({
         server: {
             baseDir: dir.dev
-        }
+        },
+        ghostMode: false
     });
 });
 
@@ -29,7 +30,6 @@ gulp.task('watch', function () {
     gulp.watch([path.join(dir.dev, dir.projectRoot, dir.assets, '_sass/*.scss')], ['sass']);
     gulp.watch([path.join(dir.dev, dir.projectRoot, dir.assets, 'js/plugins/*')], ['concat']);
     gulp.watch([path.join(dir.dev, dir.projectRoot, dir.assets, 'js/*.js')], ['jshint']);
-    gulp.watch([path.join(dir.dev, dir.projectRoot, dir.assets, 'images/**/*')], ['images']);
 });
 
 // sass
@@ -39,7 +39,7 @@ gulp.task('sass', function () {
             errorHandler: $.notify.onError('Error: <%= error.message %>')
         }))
         .pipe($.sass())
-        .pipe($.autoprefixer({browsers: ['last 3 version', 'ie 7']}))
+        .pipe($.autoprefixer({browsers: ['last 3 version', 'ie 9']}))
         .pipe(gulp.dest(path.join(dir.dev, dir.projectRoot, dir.assets, 'css')))
         .pipe(browserSync.reload({stream:true}));
 });
@@ -99,7 +99,7 @@ gulp.task('uglify', function () {
 // css-minify
 gulp.task('cssmin', function () {
     return gulp.src(path.join(dir.dev, dir.projectRoot, dir.assets, 'css/*.css'))
-        .pipe($.minifyCss({compatibility: 'ie7'}))
+        .pipe($.minifyCss({compatibility: 'ie9'}))
         .pipe(gulp.dest(path.join(dir.dist, dir.projectRoot, dir.assets, 'css')));
 });
 

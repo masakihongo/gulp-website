@@ -3,9 +3,6 @@
 // 設定
 // ============================================================
 
-// compass ブラウザサポート
-$legacy-support-for-ie7 : true;
-
 
 // 標準font-family
 $fontFamily : 'ヒラギノ角ゴ ProN W3','Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', Helvetica, verdana, Arial, sans-serif;
@@ -26,5 +23,5 @@ $baseColor : #f0f0f0;
 $width : 1040px;
 
 //media-query用サイズ
-$maxWidth1 : 979px;
-$maxWidth2 : 639px;
+$maxWidth1 : 840px;
+$maxWidth2 : 640px;
